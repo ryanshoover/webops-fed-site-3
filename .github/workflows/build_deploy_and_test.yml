@@ -98,8 +98,11 @@ jobs:
 
       # Set TERMINUS_ENV and related environment variables.
       # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
-      - name: setup-environment-vars
+      - name: setup environment vars
         run: /build-tools-ci/scripts/set-environment
+
+      - name: setup git config
+        run: git config --global --add safe.directory .
 
       - name: run static tests
         run: |
@@ -154,6 +157,9 @@ jobs:
       # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
       - name: setup-environment-vars
         run: /build-tools-ci/scripts/set-environment
+
+      - name: setup git config
+        run: git config --global --add safe.directory .
 
       - name: run PHP build step
         run: ./.ci/build/php
@@ -222,6 +228,9 @@ jobs:
       # https://github.com/pantheon-systems/docker-build-tools-ci/blob/6.x/scripts/set-environment
       - name: setup-environment-vars
         run: /build-tools-ci/scripts/set-environment
+
+      - name: setup git config
+        run: git config --global --add safe.directory .
 
       # Rsync the build artifact pieces web directory
       - name: sync build artifact
